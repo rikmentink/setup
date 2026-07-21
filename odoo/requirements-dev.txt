@@ -1,0 +1,7 @@
+coverage
+ruff
+pre-commit
+pydevd-odoo
+pylint-odoo
+pytest
+pytest-odoo

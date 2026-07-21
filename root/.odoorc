@@ -1,0 +1,14 @@
+[options]
+db_host = localhost
+db_port = 5432
+db_user = odoo
+db_password = odoo
+db_name = odoo
+
+smtp_server = localhost
+smtp_port = 1025
+smtp_encryption = none
+
+logfile = /tmp/odoo.log
+log_level = info
+workers = 2
