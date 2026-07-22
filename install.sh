@@ -50,5 +50,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo ""
 fi
 
+# vscode / cursor extensions
+read -p "Install IDE extensions and settings? (cursor/vscode/skip) " IDE
+if [ "$IDE" = "cursor" ] || [ "$IDE" = "vscode" ]; then
+    bash "$REPO_DIR/vscode/setup-extensions.sh" "$IDE"
+    bash "$REPO_DIR/vscode/setup-settings.sh" "$IDE"
+fi
+
 echo "✓ Setup complete"
 echo "  Reload shell: source ~/.zshrc"

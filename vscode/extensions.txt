@@ -1,0 +1,9 @@
+charliermarsh.ruff
+esbenp.prettier-vscode
+ms-python.python
+ms-python.debugpy
+odoo.odoo
+pkief.material-icon-theme
+repreng.csv
+usernamehw.errorlens
+wayou.vscode-todo-highlight
