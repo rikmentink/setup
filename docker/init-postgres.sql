@@ -1,3 +1,6 @@
+-- Create pgvector extension
+CREATE EXTENSION IF NOT EXISTS vector;
+
 -- Create user for Odoo
 CREATE USER odoo WITH PASSWORD 'odoo';
 GRANT USAGE ON SCHEMA public TO odoo;
