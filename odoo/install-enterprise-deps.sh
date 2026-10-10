@@ -34,11 +34,11 @@ if deps:
     print("\nFound dependencies:")
     for dep in sorted(deps):
         print(f"  - {dep}")
-    
+
     deps_file = "/tmp/enterprise_deps.txt"
     with open(deps_file, "w") as f:
         f.write("\n".join(sorted(deps)))
-    
+
     print(f"\nInstalling {len(deps)} packages...")
     os.system(f"pip install -r {deps_file}")
     print("✓ Enterprise addon dependencies installed")

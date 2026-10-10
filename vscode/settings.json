@@ -1,69 +1,64 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "terminal.external.osxExec": "Warp.app",
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.rulers": [88]
+  },
+
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.trimAutoWhitespace": true,
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-  
-    "[python]": {
-      "editor.defaultFormatter": "ms-python.python",
-      "editor.formatOnSave": true,
-      "editor.tabSize": 4,
-      "editor.rulers": [88]
-    },
-  
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.pylintArgs": [
-      "--disable=C0111",
-      "--disable=C0103"
-    ],
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-      "--line-length=88"
-    ],
-    "python.sortImports.args": [
-      "--profile=black"
-    ],
-  
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true,
-      "editor.tabSize": 2
-    },
-  
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true,
-      "editor.tabSize": 2
-    },
-  
-    "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-  
-    "eslint.validate": [
-      "javascript",
-      "typescript",
-      "typescriptreact"
-    ],
-    "eslint.format.enable": true,
-  
-    "files.exclude": {
-      "**/__pycache__": true,
-      "**/.pytest_cache": true,
-      "**/node_modules": true,
-      "**/.next": true,
-      "**/dist": true
-    },
-  
-    "search.exclude": {
-      "**/__pycache__": true,
-      "**/node_modules": true,
-      "**/.next": true
-    }
-  }
+    "editor.tabSize": 2
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
+  },
+
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "eslint.format.enable": true,
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/dist": true
+  },
+
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/node_modules": true,
+    "**/.next": true
+  },
+
+  "editor.accessibilitySupport": "off",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Cursor Dark",
+  "python.createEnvironment.trigger": "off",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.general.glassShowWarningNotifications": true,
+  "python.defaultInterpreterPath": "/Users/rikmentink/.pyenv/versions/odoo-17.0/bin/python",
+  "git.confirmSync": false,
+  "git.repositoryScanMaxDepth": -1,
+  "git.autoRepositoryDetection": true,
+  "cursor.composer.queueMessageDefaultBehavior": "steer"
+}

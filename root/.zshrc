@@ -1,7 +1,7 @@
 # Docker completions
-fpath=(/Users/rikmentink/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
-compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then compinit; else compinit -C; fi
 
 # History
 HISTSIZE=10000

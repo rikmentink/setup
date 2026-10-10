@@ -1,0 +1,63 @@
+{
+  "folders": [
+    {
+      "name": "project",
+      "path": "/Users/rikmentink/Developer/odoo/projects/{PROJECT}"
+    },
+    {
+      "name": "odoo",
+      "path": "/Users/rikmentink/Developer/odoo/versions/{VERSION}"
+    },
+    {
+      "name": "odoo-enterprise",
+      "path": "/Users/rikmentink/Developer/odoo/versions/{VERSION}+e"
+    }
+  ],
+  "settings": {
+    "Odoo.selectedProfile": "project",
+    "python.defaultInterpreterPath": "${workspaceFolder:project}/.venv/bin/python",
+    "python.languageServer": "None",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": ["${workspaceFolder:project}"]
+  },
+  "launch": {
+    "configurations": [
+      {
+        "name": "1. Run Odoo",
+        "type": "debugpy",
+        "request": "launch",
+        "python": "${workspaceFolder:project}/.venv/bin/python",
+        "program": "${workspaceFolder:odoo}/odoo-bin",
+        "args": [
+          "--config=${workspaceFolder:project}/.config/odoo.conf",
+          "--dev=all,reload"
+        ],
+        "cwd": "${workspaceFolder:project}",
+        "console": "integratedTerminal",
+        "justMyCode": false
+      },
+      {
+        "name": "2. Update Addons",
+        "type": "debugpy",
+        "request": "launch",
+        "python": "${workspaceFolder:project}/.venv/bin/python",
+        "program": "${workspaceFolder:odoo}/odoo-bin",
+        "args": [
+          "--config=${workspaceFolder:project}/.config/odoo.conf",
+          "--update=${input:addons}",
+          "--stop-after-init"
+        ],
+        "cwd": "${workspaceFolder:project}",
+        "console": "integratedTerminal",
+        "justMyCode": false
+      }
+    ],
+    "inputs": [
+      {
+        "id": "addons",
+        "type": "promptString",
+        "description": "Comma-separated list of addons to update"
+      }
+    ]
+  }
+}

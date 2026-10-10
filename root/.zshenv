@@ -1,23 +1,33 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export PATH="$HOME/bin:$PATH"
 
-# Pyenv
+# Pyenv: shims on PATH, no init/rehash per shell
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+path=($PYENV_ROOT/shims $PYENV_ROOT/bin $path)
 
-# NVM
+# Node: highest installed version on PATH, nvm itself loads on first use
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-nvm alias default node 2>/dev/null
+() {
+  setopt local_options numeric_glob_sort
+  local -a bin=( $NVM_DIR/versions/node/v*/bin(N[-1]) )
+  (( $#bin )) && path=($bin $path)
+}
+nvm() {
+  unfunction nvm
+  . /opt/homebrew/opt/nvm/nvm.sh --no-use
+  nvm "$@"
+}
 
 # Postgres client
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# XML tools
-export LDFLAGS="-L$(brew --prefix libxml2)/lib -L$(brew --prefix libxslt)/lib -L$(brew --prefix openssl)/lib -L$(brew --prefix zlib)/lib"
-export CPPFLAGS="-I$(brew --prefix libxml2)/include -I$(brew --prefix libxslt)/include -I$(brew --prefix openssl)/include -I$(brew --prefix zlib)/include"
-export LD_LIBRARY_PATH="$(brew --prefix libxml2)/lib:$(brew --prefix libxslt)/lib:$(brew --prefix openssl)/lib:$(brew --prefix zlib)/lib"
+# XML/build flags: static paths, no brew calls
+_o=/opt/homebrew/opt
+export LDFLAGS="-L$_o/libxml2/lib -L$_o/libxslt/lib -L$_o/openssl@3/lib -L$_o/zlib/lib"
+export CPPFLAGS="-I$_o/libxml2/include -I$_o/libxslt/include -I$_o/openssl@3/include -I$_o/zlib/include"
+unset _o
+
+# History
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS EXTENDED_HISTORY
